@@ -51,6 +51,8 @@ impl Universe {
             "need to pass iterable JS values!"
         })?;
 
+        nums.push(&1.into());
+
         for x in iterator {
             // If the iterator's `next` method throws an error, propagate it
             // up to the caller.
@@ -62,7 +64,7 @@ impl Universe {
             }
         }
 
-        Ok(nums)
+        Ok(nums.sort())
     }
 
     fn get_index(&self, row: u32, column: u32) -> usize {
